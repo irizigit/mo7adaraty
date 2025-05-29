@@ -1,0 +1,44 @@
+[
+    {
+        "id": "user_68363d2c4e070",
+        "username": "irizi",
+        "email": "irizi10203040@gmail.com",
+        "password_hash": "$2y$10$uBAW32vIqKfcnwjO2fUeYug0MH137Q5E7cgSDT1rmqeU2GVs7wrfu",
+        "is_admin": true
+    },
+    {
+        "id": "user_6836401b0ac9d",
+        "username": "irizi1",
+        "email": "kfgxkf@gmail.com",
+        "password_hash": "$2y$10$ebfp8odhxLqlkMKVYstW1e1l2hEdN0rijsVFIeb5LHsAN5urFGybC",
+        "is_admin": true
+    },
+    {
+        "id": "user_683646112c9f4",
+        "username": "admin",
+        "email": "0203040@gmail.com",
+        "password_hash": "$2y$10$3wsge8pHu2UcWzbBRqxToOHv8aj.sg7\/u8m5Sicsn1QWN.d\/Hoz.m",
+        "is_admin": false
+    },
+    {
+        "id": "user_683647ac7382c",
+        "username": "jjjjjjjjkfjksbdg vgfjk bn",
+        "email": "iriziirizi13@gmail.com",
+        "password_hash": "$2y$10$y01SeMW1NxySLFXeKn.a8uHqkT8Q\/VlGYnA8wBd\/Nc.yohRSWNaLS",
+        "is_admin": false
+    },
+    {
+        "id": "user_68364dffcf116",
+        "username": "adminadmin",
+        "email": "maatibrahim9@gmail.com",
+        "password_hash": "$2y$10$DeS\/po3bpIr0t4Vzjhnq1.oY3p2zQSyYCFmfIf5pxWsfWQhzAnlZW",
+        "is_admin": false
+    },
+    {
+        "id": "user_6836511836d33",
+        "username": "irizi2",
+        "email": "itsirizimohamed@gmail.com",
+        "password_hash": "$2y$10$HBVQTayAIuYIAF4EkoP7ZO6HC2psyIO9BkknYd3cAnTM5K9cmu3ra",
+        "is_admin": false
+    }
+]

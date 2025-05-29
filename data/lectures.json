@@ -1,0 +1,54 @@
+[
+    {
+        "id": "lec001",
+        "title": "مقدمة في البرمجة بلغة بايثون",
+        "description": "تغطية أساسيات لغة بايثون للمبتدئين، المتغيرات، الدوال، وهياكل البيانات الأساسية.",
+        "lecturer_id": "lecturer001",
+        "category_id": "cat001",
+        "branch_id": "arabic",
+        "semester_id": "s1",
+        "group_id": "groupA",
+        "publish_date": "2024-05-15",
+        "video_url": "videos\/lec001.mp4",
+        "audio_url": null,
+        "download_files": [
+            {
+                "name": "شرائح العرض",
+                "path": "downloads\/lec001_slides.pdf"
+            }
+        ],
+        "cover_image_url": "covers\/1.png",
+        "download_count": 2,
+        "view_count": 6,
+        "interactions": {
+            "likes": 13,
+            "dislikes": 14
+        }
+    },
+    {
+        "id": "lec002",
+        "title": "تاريخ الحضارات القديمة",
+        "description": "استكشاف الحضارات المصرية واليونانية والرومانية القديمة وأثرها على العالم الحديث.",
+        "lecturer_id": "lecturer002",
+        "category_id": "cat002",
+        "branch_id": "french",
+        "semester_id": "s2",
+        "group_id": "groupB",
+        "publish_date": "2024-05-20",
+        "video_url": null,
+        "audio_url": "audios\/lec002.mp3",
+        "download_files": [
+            {
+                "name": "ملخص المحاضرة",
+                "path": "downloads\/lec002_summary.pdf"
+            }
+        ],
+        "cover_image_url": "covers\/1.png",
+        "download_count": 9,
+        "view_count": 14,
+        "interactions": {
+            "likes": 17,
+            "dislikes": 14
+        }
+    }
+]

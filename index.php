@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحباً بك في منصة المحاضرات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8; /* خلفية بلون أزرق فاتح جداً/رمادي */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 650px;
+            width: 100%;
+        }
+        .logo-placeholder { /* يمكنك وضع شعارك هنا */
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2a75bb; /* لون أزرق مميز */
+            margin-bottom: 25px;
+        }
+        h1 {
+            color: #2c3e50; /* لون عنوان رئيسي داكن */
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        p.subtitle {
+            font-size: 1.15em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: right; /* محاذاة النص لليمين للعربية */
+        }
+        .benefits-list li {
+            background-color: #e9f3fb; /* خلفية فاتحة لعناصر القائمة */
+            border-right: 4px solid #2a75bb; /* شريط تمييز أزرق */
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-size: 1.05em;
+            transition: transform 0.2s ease-in-out;
+        }
+        .benefits-list li:hover {
+            transform: translateX(-5px); /* تأثير بسيط عند المرور */
+        }
+        .benefits-list li::before {
+            content: "💡"; /* أيقونة لمبة أو نجمة */
+            margin-left: 12px;
+            font-size: 1.1em;
+        }
+        p.encouragement {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1a5276; /* لون أزرق أغمق قليلاً */
+            margin-bottom: 30px;
+        }
+        .login-button {
+            display: inline-block;
+            background-color: #2a75bb; /* لون الزر الأساسي */
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-size: 1.25em;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .login-button:hover {
+            background-color: #205a8e; /* لون أغمق عند المرور */
+            transform: translateY(-2px);
+        }
+        .developer-note {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-placeholder">اسم المنصة/شعارك</div>
+        <h1>أهلاً بك أيها الطالب المتميز!</h1>
+        <p class="subtitle">
+            انطلق في رحلتك التعليمية معنا! منصتك الشاملة للمعرفة والتفوق تنتظرك. سجّل دخولك الآن واكتشف عالماً من المحاضرات والموارد التي ستساعدك على تحقيق أهدافك الأكاديمية.
+        </p>
+
+        <ul class="benefits-list">
+            <li>الوصول الفوري إلى مكتبة غنية بالمحاضرات المرئية والمسموعة.</li>
+            <li>تحميل المواد الدراسية، الملخصات، والعروض التقديمية بسهولة.</li>
+            <li>مصادر تعليمية محدثة باستمرار لتواكب كل جديد.</li>
+            <li>فرصة للتفاعل وطرح الأسئلة (إذا كانت المنصة تدعم ذلك).</li>
+            <li>تنظيم جدولك الدراسي ومتابعة تقدمك.</li>
+        </ul>
+
+        <p class="encouragement">
+            استثمر في مستقبلك اليوم. كل محاضرة تشاهدها هي خطوة نحو النجاح!
+        </p>
+
+<a href="http://localhost/islamique/public/login.php" class="login-button">تسجيل الدخول</a>        <p class="developer-note">
+            هذه الصفحة هي نقطة انطلاقك نحو عالم المعرفة.
+        </p>
+    </div>
+</body>
+</html>
