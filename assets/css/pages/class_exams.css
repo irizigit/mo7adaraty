@@ -1,0 +1,154 @@
+/* =========================================
+   Class Exams Page Styles (class_exams.css)
+   ========================================= */
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 15px; 
+}
+
+/* ===== كلاسات الأيقونات الديناميكية المشتركة ===== */
+.cust-icon-sm { width: 40px; height: 40px; object-fit: contain; vertical-align: middle; }
+.cust-icon-md { width: 70px; height: 70px; object-fit: contain; vertical-align: middle; }
+.cust-icon-lg { width: 50px; height: 50px; object-fit: contain; vertical-align: middle; }
+.cust-icon-xl { width: 72px; height: 72px; object-fit: contain; vertical-align: middle; margin-bottom: 10px; }
+
+/* ===== رأس الصفحة ===== */
+.page-header { 
+    background: var(--bg-surface); 
+    border-radius: var(--radius-md); 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: var(--shadow-md);
+    display: flex; 
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.header-top, .class-nav { position: relative; z-index: 1; }
+
+.header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+.page-header-title { display: flex; align-items: center; gap: 10px; }
+.page-header h1 { margin: 0; font-size: 22px; color: var(--brand-primary); font-weight: 700; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.year-badge { font-size: 14px; background: var(--brand-light); padding: 4px 12px; border-radius: 12px; color: var(--brand-primary); font-weight: 600; }
+
+.header-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.header-actions a.back-link { color: var(--brand-primary); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+.upload-btn { background-color: var(--danger-color); color: white !important; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; transition: var(--transition-fast); border: none; }
+.upload-btn:hover { background-color: #c82333; transform: translateY(-2px); }
+
+/* ===== شريط التنقل ===== */
+.class-nav { display: flex; justify-content: center; gap: 5px; background: var(--bg-surface); border-radius: var(--radius-md); padding: 8px; margin-bottom: 20px; box-shadow: var(--shadow-sm); flex-wrap: wrap; border: 1px solid var(--border-color); transition: background-color var(--transition-normal);}
+.class-nav a { color: var(--text-secondary); text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: 600; transition: var(--transition-fast); display: flex; align-items: center; gap: 6px; }
+.class-nav a:hover { background-color: var(--brand-light); color: var(--brand-primary); }
+.class-nav a.active { background: var(--brand-primary); color: #fff; }
+
+/* ===== المحتوى الرئيسي وشبكة الامتحانات ===== */
+.lectures-main-content { flex: 1; min-width: 0; }
+.lectures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+.lecture-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; transition: var(--transition-normal); display: flex; flex-direction: column; }
+.lecture-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--brand-primary); }
+
+/* ===== غلاف الامتحان الوهمي ===== */
+.lecture-cover { position: relative; width: 100%; height: 180px; background-color: var(--bg-light); border-bottom: 1px solid var(--border-color); overflow: hidden; }
+.lecture-cover-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; background: var(--bg-light); position: relative; }
+.lecture-cover-placeholder-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+.lecture-cover-placeholder h3 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-top: 10px; margin-bottom: 8px; line-height: 1.3; }
+.lecture-cover-placeholder p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+.lecture-cover-placeholder .file-type { position: absolute; top: 15px; right: 15px; background: var(--danger-color); color: white; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; z-index: 3; }
+
+.card-header { padding: 20px; display: flex; align-items: center; gap: 15px; }
+.header-info h3 { margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary); }
+.header-info p { margin: 4px 0 0; font-size: 14px; color: var(--text-secondary); }
+
+.card-body { padding: 0 20px 20px; flex-grow: 1; color: var(--text-primary); }
+.card-body p { margin: 0; line-height: 1.7; }
+
+.card-footer { padding: 15px 20px; background-color: var(--bg-light); border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+
+/* ===== الأزرار ===== */
+.action-buttons { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; justify-content: flex-start;}
+.action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: var(--transition-fast); white-space: nowrap; }
+.view-btn-action { background-color: var(--info-color); color: white; }
+.download-btn-action { background-color: var(--brand-primary); color: white; }
+.report-btn-action { background-color: var(--warning-color); color: #212529; }
+.action-btn:hover { transform: translateY(-1px); opacity: 0.9; }
+
+.reaction-buttons { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;}
+.reaction-btn { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 6px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; background: var(--bg-surface); color: var(--text-secondary); border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-fast); }
+.reaction-btn:hover { background: var(--border-color); transform: translateY(-1px); }
+.reaction-btn.active.like { background-color: var(--brand-primary); color: white; border-color: var(--brand-primary); }
+.reaction-btn.active.dislike { background-color: var(--danger-color); color: white; border-color: var(--danger-color); }
+.reaction-count { font-size: 12px; min-width: 20px; text-align: center; }
+
+/* ===== قسم التعليقات ===== */
+.comments-section { padding: 0; border-top: 1px solid var(--border-color); background-color: var(--bg-surface); }
+.comments-toggle { padding: 12px 20px; background: var(--bg-light); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition-fast); border-bottom: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);}
+.comments-toggle:hover { background: var(--border-color); color: var(--text-primary); }
+.comments-count { background: var(--brand-primary); color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.comments-content { display: none; padding: 20px; }
+.comments-content.show { display: block; }
+.comment { display: flex; align-items: flex-start; margin-bottom: 15px; padding: 15px; background: var(--bg-light); border-radius: 8px; position: relative; border: 1px solid var(--border-color); }
+.comment-author-info { flex-shrink: 0; margin-left: 12px; text-align: center; }
+.comment-author-info img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 5px; border: 2px solid var(--bg-surface); }
+.comment-author-name { font-size: 12px; font-weight: 600; color: var(--text-primary); }
+.comment-content { flex: 1; color: var(--text-primary); }
+.comment-text { margin-bottom: 8px; line-height: 1.5; }
+.comment-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-secondary); flex-wrap: wrap; gap: 5px; }
+
+.comment-form { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;}
+.comment-form textarea { flex-grow: 1; width: 100%; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px; font-family: var(--font-family); resize: vertical; min-height: 50px; background-color: var(--bg-surface); color: var(--text-primary); }
+.comment-form textarea:focus { outline: none; border-color: var(--brand-primary); }
+.comment-form button { border: none; background-color: var(--success-color); color: white; padding: 8px 15px; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition-fast); white-space: nowrap; display: flex; align-items: center; gap: 6px; font-weight: bold; }
+.comment-form button:hover { background-color: #218838; }
+
+/* ===== النوافذ المنبثقة ===== */
+.modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); animation: fadeIn 0.3s; }
+.modal-content { background-color: var(--bg-surface); color: var(--text-primary); margin: 10% auto; padding: 0; border: 1px solid var(--border-color); width: 90%; max-width: 500px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); animation: slideIn 0.3s; }
+@keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 15px 20px; background-color: var(--bg-light); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+.modal-header h2 { margin: 0; font-size: 20px; font-weight: 600; display:flex; align-items:center; gap:8px; color: var(--text-primary); }
+.close-btn { color: var(--text-secondary); font-size: 24px; font-weight: bold; cursor: pointer; transition: var(--transition-fast); line-height: 1; background: none; border: none; }
+.close-btn:hover { color: var(--danger-color); }
+.modal-body { padding: 20px; }
+.modal-body .form-group label { color: var(--text-primary); font-weight: bold; }
+.modal-body .form-group textarea { width: 100%; min-height: 100px; padding: 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: var(--font-family); resize: vertical; margin-top: 8px; background-color: var(--bg-color); color: var(--text-primary); }
+.modal-body .form-group textarea:focus { outline: none; border-color: var(--brand-primary); }
+
+.download-modal-content { max-width: 400px; text-align: center; padding: 30px; border-radius: var(--radius-lg); }
+.countdown-circle { position: relative; display: flex; justify-content: center; align-items: center; margin: 20px auto; }
+.progress-ring-circle { transform: rotate(-90deg); transform-origin: 50% 50%; stroke-linecap: round; transition: stroke-dashoffset 8s linear; }
+.countdown-number { position: absolute; font-size: 28px; font-weight: bold; color: var(--brand-primary); }
+
+/* ===== التصميم المتجاوب ===== */
+@media (max-width: 768px) {
+  .header-actions { width: 100%; justify-content: space-between; }
+  .class-nav { justify-content: flex-start; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap;}
+  .lectures-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 576px) {
+  .page-header { padding: 15px; }
+  .page-header h1 { font-size: 18px; justify-content: center; width: 100%; text-align: center;}
+  .header-top { flex-direction: column; align-items: stretch; text-align: center; }
+  .page-header-title { justify-content: center; }
+  .header-actions { flex-direction: column; width: 100%; gap: 15px; }
+  .header-actions a.back-link { justify-content: center; width: 100%; }
+  .upload-btn { width: 100%; }
+  
+  .card-header { flex-direction: column; text-align: center; }
+  .card-footer { flex-direction: column; align-items: stretch; gap: 15px; }
+  .action-buttons { flex-direction: column; width: 100%; }
+  .action-btn { width: 100%; justify-content: center; }
+  .reaction-buttons { justify-content: center; width: 100%; }
+}
+
+.empty-state { text-align: center; padding: 40px 20px; background: var(--bg-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px dashed var(--border-color); }
+.empty-state p { color: var(--text-secondary); font-size: 16px; margin-top: 15px;}
+.loader { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.3); border-radius: 50%; border-top-color: white; animation: spin 1s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

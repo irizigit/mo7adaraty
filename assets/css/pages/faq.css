@@ -1,0 +1,261 @@
+/* =========================================
+   FAQ Page Styles (faq.css)
+   ========================================= */
+
+.faq-page-wrapper {
+    background-color: var(--bg-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* 1. Hero & Search Section */
+.faq-hero {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-hover));
+    padding: 80px 20px 100px; /* زيادة الحشو السفلي لاحتواء شريط البحث */
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: 1;
+}
+
+.faq-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* 2. Live Search Bar */
+.faq-search-container {
+    max-width: 600px;
+    margin: -35px auto 40px;
+    position: relative;
+    z-index: 10;
+    padding: 0 15px;
+}
+
+.faq-search-wrapper {
+    position: relative;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.faq-search-wrapper:focus-within {
+    box-shadow: 0 15px 30px rgba(26, 115, 232, 0.2);
+    border-color: var(--brand-primary);
+    transform: translateY(-2px);
+}
+
+.faq-search-input {
+    width: 100%;
+    padding: 20px 55px 20px 20px;
+    border: none;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-family: var(--font-family);
+}
+
+html[dir="ltr"] .faq-search-input {
+    padding: 20px 20px 20px 55px;
+}
+
+.faq-search-input:focus {
+    outline: none;
+}
+
+.faq-search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    color: var(--text-secondary);
+    font-size: 55px;
+    pointer-events: none;
+}
+
+html[dir="ltr"] .faq-search-icon {
+    right: auto;
+    left: 20px;
+}
+
+/* 3. FAQ Categories */
+.faq-category-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 40px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.faq-category-icon {
+    width: 100px;
+    height: 100px;
+    
+    color: var(--brand-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* 4. Accordion Items */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--brand-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item.active {
+    border-color: var(--brand-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: right;
+    padding: 20px 25px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: background-color var(--transition-fast);
+}
+
+html[dir="ltr"] .faq-question {
+    text-align: left;
+}
+
+.faq-item.active .faq-question {
+    background-color: var(--brand-light);
+    color: var(--brand-primary);
+}
+
+.faq-toggle-icon {
+    color: var(--text-secondary);
+    font-size: 18px;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-toggle-icon {
+    color: var(--brand-primary);
+    transform: rotate(180deg);
+}
+
+.faq-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.faq-answer {
+    padding: 0 25px 20px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 15px;
+    border-top: 1px solid transparent;
+}
+
+.faq-item.active .faq-answer {
+    border-top-color: var(--border-color);
+    padding-top: 20px;
+}
+
+/* 5. No Results State */
+.faq-no-results {
+    display: none;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--bg-surface);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    margin-top: 40px;
+}
+
+.faq-no-results.show {
+    display: block;
+}
+
+.faq-no-results i {
+    font-size: 40px;
+    color: var(--border-color);
+    margin-bottom: 15px;
+}
+
+/* 6. Contact CTA Box */
+.faq-cta-box {
+    background: linear-gradient(135deg, var(--bg-surface), var(--bg-light));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+    margin-top: 60px;
+    box-shadow: var(--shadow-md);
+}
+
+.faq-cta-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.faq-cta-text {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.faq-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: var(--radius-pill);
+    font-weight: bold;
+    transition: all var(--transition-fast);
+}
+
+.faq-cta-btn:hover {
+    background-color: var(--brand-hover);
+    transform: translateY(-2px);
+    color: #ffffff;
+}

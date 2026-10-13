@@ -1,0 +1,297 @@
+/* =========================================
+   Academic Structure Styles (الشعب، الفصول، المواد)
+   ========================================= */
+
+/* ===== 1. نموذج الإضافة (Add Form Card) ===== */
+.form-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--brand-primary);
+    transition: all var(--transition-normal);
+}
+
+.form-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.form-title {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 15px;
+}
+
+.form-title-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.academic-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 15px;
+    transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px var(--brand-light);
+}
+
+.btn-add {
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    border: none;
+    padding: 14px 30px;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all var(--transition-fast);
+    font-family: var(--font-family);
+    height: 50px; /* لمطابقة ارتفاع الحقول */
+}
+
+.btn-add:hover {
+    background-color: var(--brand-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* الأيقونات بدون فلاتر */
+.btn-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* معاينة الصورة قبل الرفع */
+.image-preview-container {
+    margin-top: 10px;
+    display: none; /* تظهر بالجافاسكريبت */
+}
+
+.image-preview-container img {
+    max-width: 150px;
+    max-height: 100px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    object-fit: cover;
+}
+
+/* ===== 2. شبكة الكروت (Cards Grid) ===== */
+.academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.academic-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+}
+
+.academic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--brand-primary);
+}
+
+/* غلاف الكارت (الصورة أو التعويض الذكي) */
+.card-img-wrapper {
+    height: 180px;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.card-img-wrapper img.cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.academic-card:hover .card-img-wrapper img.cover-img {
+    transform: scale(1.05);
+}
+
+.card-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-surface), var(--bg-light));
+    color: var(--text-primary);
+    text-align: center;
+    padding: 20px;
+}
+
+.card-fallback .fallback-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    object-fit: contain;
+}
+
+.card-fallback h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* محتوى الكارت */
+.card-body {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* ===== 3. أزرار الإجراءات (Action Buttons) ===== */
+.card-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 15px 20px;
+    background: var(--bg-light);
+    border-top: 1px dashed var(--border-color);
+}
+
+.btn-action {
+    padding: 8px 20px;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+/* خلفيات ناعمة جداً للحفاظ على وضوح الأيقونات الأصلية */
+.btn-edit {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--text-primary);
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+.btn-edit:hover {
+    background: rgba(255, 193, 7, 0.2);
+    border-color: var(--warning-color);
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--text-primary);
+    border-color: rgba(220, 53, 69, 0.3);
+}
+
+.btn-delete:hover {
+    background: rgba(220, 53, 69, 0.2);
+    border-color: var(--danger-color);
+    transform: translateY(-2px);
+}
+
+.action-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    /* بدون فلاتر! الألوان تظهر كما صممتها */
+}
+
+/* ===== حالة فارغة ===== */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--border-color);
+    grid-column: 1 / -1;
+}
+
+.empty-state-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .academic-form { flex-direction: column; align-items: stretch; }
+    .btn-add { width: 100%; justify-content: center; }
+}

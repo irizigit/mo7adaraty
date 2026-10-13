@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background: #244071;
+  overflow-x: hidden;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* التنسيق الأساسي للمستودع الجانبي للإدارة */
+.admin-sidebar {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0; /* التموضع من اليمين للتوافق مع اللغة العربية */
+  width: 260px;
+  height: 100%;
+  background: #14274c;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* شاشات الموبايل والأجهزة الصغيرة أقل من 768px */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    transform: translateX(100%); /* إخفاء السايدبار بالكامل خارج الشاشة يميناً */
+  }
+
+  /* إظهار السايدبار عند الضغط على الزر وتفعيل الكلاس المنهار */
+  .admin-sidebar.collapsed {
+    transform: translateX(0);
+    width: 280px;
+  }
+}
+
+/* شاشات الحواسيب والأجهزة الكبيرة */
+@media (min-width: 769px) {
+  .admin-sidebar.collapsed {
+    width: 80px;
+  }
+  
+  .admin-sidebar.collapsed:hover {
+    width: 260px;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  height: 72px;
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-logo {
+  max-width: 140px;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.admin-sidebar.collapsed .sidebar-logo {
+  opacity: 0;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar.collapsed .sidebar-logo {
+    opacity: 1;
+    display: block;
+  }
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  width: 100%;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  color: #f9f9f9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-link:hover, .sidebar-item.active .sidebar-link {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.sidebar-text {
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.admin-sidebar.collapsed .sidebar-text {
+  opacity: 0;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar.collapsed .sidebar-text {
+    opacity: 1;
+    display: inline-block;
+  }
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* زر الهامبرغر العائم للموبايل فقط للتحكم في القائمة */
+.mobile-burger-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 99999;
+  background: #14274c;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .mobile-burger-btn {
+    display: flex;
+  }
+}

@@ -1,0 +1,67 @@
+/* =========================================
+   Home Page Styles (Landing Page)
+   ========================================= */
+
+/* Hero Section */
+.hero-pattern { 
+    background-image: radial-gradient(#ffffff 1px, transparent 1px); 
+    background-size: 20px 20px; 
+}
+.animate-float { 
+    animation: float 6s ease-in-out infinite; 
+}
+@keyframes float { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-20px); } 
+}
+
+/* Typography & Effects */
+.gradient-text { 
+    background: linear-gradient(to right, #4facfe, #00f2fe); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+.glass-effect { 
+    backdrop-filter: blur(10px); 
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+}
+.shadow-custom { 
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); 
+}
+.shadow-custom-hover { 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+}
+
+/* Shapes & Dividers */
+.shape-divider { 
+    position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; 
+}
+.shape-divider svg { 
+    display: block; width: calc(130% + 1.3px); height: 120px; 
+}
+
+/* Video Section */
+.video-container { 
+    position: relative; border-radius: 1rem; overflow: hidden; 
+}
+.video-container video { 
+    width: 100%; display: block; 
+}
+.animate-pulse-slow { 
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; 
+}
+
+/* Cards */
+.feature-card { 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.feature-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+}
+.stat-item { 
+    backdrop-filter: blur(10px); 
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+}

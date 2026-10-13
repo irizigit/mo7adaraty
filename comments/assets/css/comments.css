@@ -1,0 +1,332 @@
+/* =================================
+   تنسيق قسم التعليقات والردود المتسلسلة
+   ================================= */
+.comments-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color, #e2e8f0);
+}
+
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* بنية التعليق الرئيسي */
+.comment-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-secondary, #f8f9fa);
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e2e8f0);
+    align-items: flex-start;
+}
+
+.comment-item .comment-avatar {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.comment-item .comment-avatar img {
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--brand-primary, #0284c7);
+    display: block;
+}
+
+.comment-body {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.comment-header .author-name {
+    font-size: 0.95rem;
+    color: var(--text-primary, #1e293b);
+}
+
+.user-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* علامة الإشارة إلى المستخدم الذي تم الرد عليه */
+.replying-to-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: var(--text-secondary, #64748b);
+    background: rgba(2, 132, 199, 0.08);
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.replying-to-badge strong {
+    color: var(--brand-primary, #0284c7);
+}
+
+.comment-date {
+    font-size: 0.78rem;
+    color: var(--text-secondary, #64748b);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.comment-text {
+    margin: 0 0 8px 0;
+    color: var(--text-primary, #334155);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+/* أزرار الإجراءات */
+.comment-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 6px;
+    border-top: 1px dashed var(--border-color, #cbd5e1);
+    padding-top: 6px;
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+}
+
+.reply-toggle-btn { color: #0284c7; }
+.reply-toggle-btn:hover { color: #0369a1; }
+.edit-comment-btn { color: #d97706; }
+.edit-comment-btn:hover { color: #b45309; }
+.delete-comment-btn { color: #ef4444; }
+.delete-comment-btn:hover { color: #dc2626; }
+
+/* حاوية الردود الفرعية والتفريغ الجانبي المتناسق */
+.replies-container {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-inline-start: 2px solid var(--border-color, #cbd5e1);
+    padding-inline-start: 12px;
+}
+
+.reply-item {
+    background: var(--bg-surface, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.reply-item .comment-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.reply-item .comment-avatar img {
+    width: 32px;
+    height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    border-width: 1.5px;
+}
+
+.reply-item .comment-header .author-name {
+    font-size: 0.88rem;
+}
+
+.reply-item .comment-text {
+    font-size: 0.88rem;
+}
+
+/* نموذج الرد السريع المنسدل */
+.nested-reply-form {
+    margin-top: 10px;
+}
+
+.reply-input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.reply-input-group textarea {
+    flex-grow: 1;
+    border: 1px solid var(--border-color, #cbd5e1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    resize: none;
+    background: var(--bg-surface, #ffffff);
+    color: var(--text-primary, #1e293b);
+    min-height: 38px;
+}
+
+.reply-input-group textarea:focus {
+    outline: none;
+    border-color: var(--brand-primary, #0284c7);
+}
+
+.reply-input-group button {
+    background: var(--brand-primary, #0284c7);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.reply-input-group button:hover {
+    background: #0369a1;
+}
+
+/* نموذج التعليق الأساسي في المنشور */
+.comment-form {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.comment-form textarea {
+    flex-grow: 1;
+    border: 1px solid var(--border-color, #cbd5e1);
+    border-radius: 8px;
+    padding: 10px;
+    resize: vertical;
+    font-family: inherit;
+    min-height: 42px;
+    background: var(--bg-surface, #ffffff);
+    color: var(--text-primary, #1e293b);
+}
+
+.comment-form button {
+    border: none;
+    background-color: var(--brand-primary, #0284c7);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.comment-form button:hover {
+    background-color: #0369a1;
+}
+
+.no-comments-box {
+    text-align: center;
+    color: var(--text-secondary, #64748b);
+    padding: 30px 20px;
+    background: var(--bg-primary, #ffffff);
+    border-radius: 12px;
+    border: 1px dashed var(--border-color, #cbd5e1);
+}
+
+.no-comments-box i {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.comment-error-alert {
+    color: #dc3545;
+    padding: 15px;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 8px;
+    border: 1px solid #dc3545;
+    font-weight: bold;
+}
+
+/* ========================================================
+   تنسيق نوافذ التنبيه والتأكيد العصرية (SweetAlert2 Custom Styling)
+   ======================================================== */
+div:where(.swal2-container) {
+    font-family: 'Tajawal', sans-serif !important;
+    backdrop-filter: blur(5px);
+    z-index: 999999 !important;
+}
+
+div:where(.swal2-container) .swal2-popup {
+    border-radius: 20px !important;
+    padding: 24px !important;
+    background: var(--bg-surface, #ffffff) !important;
+    color: var(--text-primary, #1e293b) !important;
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.2) !important;
+}
+
+div:where(.swal2-container) .swal2-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: var(--text-primary, #1e293b) !important;
+    margin-bottom: 10px !important;
+}
+
+div:where(.swal2-container) .swal2-html-container {
+    font-size: 0.95rem !important;
+    color: var(--text-secondary, #64748b) !important;
+    line-height: 1.6 !important;
+    margin: 10px 0 20px 0 !important;
+}
+
+div:where(.swal2-container) .swal2-actions {
+    gap: 10px !important;
+    margin-top: 15px !important;
+}
+
+div:where(.swal2-container) button.swal2-confirm,
+div:where(.swal2-container) button.swal2-cancel {
+    border-radius: 10px !important;
+    padding: 10px 22px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+div:where(.swal2-container) textarea.swal2-textarea {
+    border-radius: 12px !important;
+    border: 1px solid var(--border-color, #cbd5e1) !important;
+    background: var(--bg-body, #f8f9fa) !important;
+    color: var(--text-primary, #1e293b) !important;
+    font-family: 'Tajawal', sans-serif !important;
+    box-shadow: none !important;
+}
+
+div:where(.swal2-container) textarea.swal2-textarea:focus {
+    border-color: var(--brand-primary, #0284c7) !important;
+    outline: none !important;
+}

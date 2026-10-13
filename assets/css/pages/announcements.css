@@ -1,0 +1,207 @@
+/* =========================================
+   Announcements Page Styles (announcements.css)
+   ========================================= */
+
+.announcements-wrapper {
+    background-color: var(--bg-color);
+    min-height: calc(100vh - 80px);
+    padding: 40px 20px;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.announcements-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ===== رأس الصفحة وشريط البحث ===== */
+.announcements-header {
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.announcements-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.announcements-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.announcements-subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.announcement-search-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.announcement-search-input {
+    width: 100%;
+    padding: 16px 20px 16px 50px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 15px;
+    transition: all var(--transition-fast);
+}
+
+html[dir="ltr"] .announcement-search-input {
+    padding: 16px 50px 16px 20px;
+}
+
+.announcement-search-input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px var(--brand-light);
+    background-color: var(--bg-surface);
+}
+
+.announcement-search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+html[dir="ltr"] .announcement-search-icon {
+    left: auto;
+    right: 20px;
+}
+
+/* ===== بطاقات الإعلانات ===== */
+.announcements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.announcement-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-right: 5px solid var(--brand-primary); /* لتمييز البطاقة */
+    padding: 25px;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+html[dir="ltr"] .announcement-card {
+    border-right: 1px solid var(--border-color);
+    border-left: 5px solid var(--brand-primary);
+}
+
+.announcement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-primary);
+}
+
+.announcement-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.announcement-card-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+    line-height: 1.4;
+}
+
+.announcement-date-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--bg-light);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.announcement-date-badge img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.announcement-content {
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.announcement-content p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.announcement-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== حالات فارغة ===== */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px dashed var(--border-color);
+}
+
+.empty-state-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.no-results {
+    display: none;
+}

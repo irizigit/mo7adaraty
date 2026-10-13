@@ -1,0 +1,11 @@
+# تفعيل محرك إعادة الكتابة
+RewriteEngine On
+
+# توجيه أخطاء الخادم إلى صفحة الخطأ الموحدة الخاصة بنا
+ErrorDocument 403 /mo7adaraty/error.php?code=403
+ErrorDocument 404 /mo7adaraty/error.php?code=404
+ErrorDocument 500 /mo7adaraty/error.php?code=500
+php_value upload_max_filesize 50M
+php_value post_max_size 60M
+php_value memory_limit 256M
+php_value max_execution_time 300

@@ -1,0 +1,146 @@
+/* تنسيق بنية التعليق الأساسي */
+.comment-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: var(--bg-secondary, #f8f9fa);
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.comment-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--brand-primary, #0284c7);
+}
+
+.comment-body {
+    flex-grow: 1;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.comment-header strong {
+    font-size: 0.92rem;
+    color: var(--text-primary, #1e293b);
+}
+
+.comment-date {
+    font-size: 0.78rem;
+    color: var(--text-secondary, #64748b);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-color, #cbd5e1);
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+}
+
+.reply-toggle-btn { color: #0284c7; }
+.reply-toggle-btn:hover { color: #0369a1; }
+.edit-comment-btn { color: #d97706; }
+.edit-comment-btn:hover { color: #b45309; }
+.delete-comment-btn { color: #ef4444; }
+.delete-comment-btn:hover { color: #dc2626; }
+
+/* حاوية الردود الفرعية والتفريغ الجانبي */
+.replies-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reply-item {
+    margin-bottom: 0;
+    padding: 10px 12px;
+    background: var(--bg-surface, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-inline-start: 3px solid var(--brand-primary, #0284c7);
+}
+
+.reply-item .comment-avatar img {
+    width: 32px;
+    height: 32px;
+}
+
+/* نموذج الرد المنسدل */
+.nested-reply-form {
+    margin-top: 10px;
+}
+
+.reply-input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.reply-input-group textarea {
+    flex-grow: 1;
+    border: 1px solid var(--border-color, #cbd5e1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    resize: none;
+    min-height: 36px;
+    max-height: 80px;
+    background: var(--bg-surface, #ffffff);
+    color: var(--text-primary, #1e293b);
+}
+
+.reply-input-group button {
+    background: var(--brand-primary, #0284c7);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 14px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.reply-input-group button:hover {
+    background: #0369a1;
+}
+
+.no-comments-box {
+    text-align: center;
+    color: var(--text-secondary, #64748b);
+    padding: 30px 20px;
+    background: var(--bg-primary, #fff);
+    border-radius: 12px;
+    border: 1px dashed var(--border-color, #ccc);
+}
+
+.no-comments-box i {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    display: block;
+}

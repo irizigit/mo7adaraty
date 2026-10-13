@@ -1,0 +1,139 @@
+/* =========================================
+   Login Page Styles (login.css)
+   ========================================= */
+body.login-page {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* 1. Dynamic Background Handling */
+body.login-page.has-custom-bg {
+    background-image: var(--login-bg-body) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-color: transparent !important;
+}
+
+body.login-page.has-custom-bg #bg-video,
+body.login-page.has-custom-bg .bg-animation,
+body.login-page.has-custom-bg .shape-1,
+body.login-page.has-custom-bg .shape-2,
+body.login-page.has-custom-bg .shape-3 {
+    display: none !important;
+}
+
+.login-wrapper.has-custom-card-bg {
+    background-image: var(--login-bg-card) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+}
+
+/* 2. Layout & Positioning */
+.login-main-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.bg-animation, #bg-video, .shape-1, .shape-2, .shape-3 {
+    position: fixed !important;
+}
+
+.header-wrapper, .footer-wrapper {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+}
+/* 3. Inputs & Buttons Sizing */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق الحقول بشكل عام (مثل حقل اسم المستخدم) مسافة كبيرة من جهة البداية للأيقونة، ومسافة عادية في النهاية */
+.input-group input {
+    height: 70px !important;
+    padding-inline-start: 75px !important;
+    padding-inline-end: 15px !important;
+    font-size: 16px;
+    border-radius: 12px;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* حقل كلمة المرور يحتاج مسافة 75 بيكسل من الجهتين (البداية والنهاية) لأن به أيقونتين: القفل والعين */
+.password-group .input-group input {
+    padding-inline-end: 75px !important;
+}
+
+/* ملاحظة: تم الاستغناء عن أكواد html[dir="ltr"] الخاصة بالـ padding 
+   لأن خصائص padding-inline تتكفل بعكس الاتجاهات تلقائياً مع لغة الصفحة 
+*/
+
+.auth-form button[type="submit"] {
+    height: 70px;
+    font-size: 20px;
+    border-radius: 12px;
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-normal), transform var(--transition-fast);
+}
+
+.auth-form button[type="submit"]:hover {
+    background-color: var(--brand-hover);
+    transform: translateY(-2px);
+}
+/* 4. Remember Me Checkbox */
+.remember-me-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: right;
+    justify-content: flex-start;
+}
+
+html[dir="ltr"] .remember-me-container {
+    text-align: left;
+}
+
+.remember-me-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--brand-primary);
+}
+
+.remember-me-container label {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* 5. Dark Mode Specific Overrides */
+[data-theme="dark"] .login-wrapper:not(.has-custom-card-bg) {
+    background-color: var(--bg-surface);
+    border-color: var(--border-color);
+}

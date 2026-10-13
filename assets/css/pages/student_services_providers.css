@@ -1,0 +1,174 @@
+/* assets/css/pages/student_services_providers.css */
+.services-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 60vh;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color, #004880);
+    margin-bottom: 40px;
+}
+
+.no-data-msg {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    padding: 50px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.service-cover {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.service-title {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.provider-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.provider-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-inline-end: 10px;
+    object-fit: cover;
+}
+
+.provider-name {
+    font-size: 0.95rem;
+    color: #34495e;
+    font-weight: bold;
+}
+
+.service-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.service-price {
+    font-size: 1.1rem;
+    color: #27ae60;
+}
+
+.service-actions {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #ecf0f1;
+    background: #f9fbfc;
+}
+
+.action-btn {
+    flex: 1;
+    min-width: 25%;
+    padding: 12px 5px;
+    border: none;
+    background: transparent;
+    color: #7f8c8d;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-right: 1px solid #ecf0f1;
+    transition: background 0.2s, color 0.2s;
+}
+
+[dir="rtl"] .action-btn {
+    border-right: none;
+    border-left: 1px solid #ecf0f1;
+}
+
+.action-btn:last-child {
+    border: none;
+}
+
+.action-btn:hover {
+    background: #f1f2f6;
+    color: #2c3e50;
+}
+
+.contact-btn {
+    display: block;
+    text-align: center;
+    background: #25D366;
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.contact-btn:hover {
+    background: #128C7E;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.submit-btn, .cancel-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn { background: #e74c3c; color: #fff; }
+.cancel-btn { background: #bdc3c7; color: #333; }

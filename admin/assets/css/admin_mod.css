@@ -1,0 +1,178 @@
+/* admin/assets/css/admin_mod.css */
+.mod-container {
+    padding: 20px;
+}
+
+.page-title {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.no-data-alert {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #6c757d;
+    border-radius: 4px;
+}
+
+[dir="rtl"] .no-data-alert {
+    border-left: none;
+    border-right: 4px solid #3498db;
+}
+
+.mod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.mod-card {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.mod-cover {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.mod-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mod-badge {
+    align-self: flex-start;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.badge-academic { background-color: #3498db; }
+.badge-center { background-color: #8e44ad; }
+
+.mod-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.mod-desc {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.mod-meta {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #34495e;
+}
+
+.mod-meta p {
+    margin: 5px 0;
+}
+
+.mod-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-approve {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+.btn-reject {
+    background-color: #e74c3c;
+    color: #fff;
+    flex: 1;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+    margin-top: 0;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-reject-confirm {
+    background-color: #e74c3c;
+    color: #fff;
+    width: auto;
+    padding: 10px 20px;
+}
+
+.btn-cancel {
+    background-color: #95a5a6;
+    color: #fff;
+    width: auto;
+    padding: 10px 20px;
+}

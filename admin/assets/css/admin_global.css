@@ -1,0 +1,393 @@
+/* =========================================
+   Admin Global Styles (admin_global.css)
+   ========================================= */
+
+/* استيراد المتغيرات الأساسية من النظام العام إذا لزم الأمر، أو تعريفها هنا */
+:root {
+    --admin-sidebar-width: 260px; 
+    --admin-sidebar-collapsed: 80px; 
+    --admin-header-height: 70px;
+    --transition-speed: 0.3s;
+}
+
+body.admin-body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    overflow-x: hidden;
+}
+
+/* ===== 1. Sidebar ===== */
+.admin-sidebar {
+    width: var(--admin-sidebar-width);
+    background-color: var(--bg-surface);
+    border-left: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    top: 0;
+    right: 0; /* RTL */
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: width var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    height: var(--admin-header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
+    background: linear-gradient(135deg, var(--bg-surface), var(--bg-light));
+}
+
+.sidebar-logo {
+    max-height: 45px;
+    object-fit: contain;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.sidebar-item {
+    margin-bottom: 5px;
+    padding: 0 15px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 15px;
+    transition: all var(--transition-speed);
+}
+
+.sidebar-link:hover {
+    background-color: var(--bg-light);
+    color: var(--brand-primary);
+    transform: translateX(-5px);
+}
+
+/* التمييز البصري للصفحة النشطة */
+.sidebar-item.active .sidebar-link {
+    background-color: var(--brand-light);
+    color: var(--brand-primary);
+    border-right: 4px solid var(--brand-primary);
+}
+
+/* الأيقونات */
+.sidebar-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* ===== 2. Main Content & Header ===== */
+.admin-main {
+    flex: 1;
+    margin-right: var(--admin-sidebar-width); 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-right var(--transition-speed) ease;
+}
+
+/* شاشات الحاسوب: تصغير السايدبار وتمديد المحتوى */
+@media (min-width: 993px) {
+    .admin-sidebar.collapsed {
+        width: var(--admin-sidebar-collapsed);
+    }
+    .admin-sidebar.collapsed .sidebar-text,
+    .admin-sidebar.collapsed .sidebar-logo {
+        display: none;
+    }
+    .admin-main.expanded {
+        margin-right: var(--admin-sidebar-collapsed);
+    }
+    
+    .admin-sidebar.collapsed:hover {
+        width: var(--admin-sidebar-width);
+    }
+    .admin-sidebar.collapsed:hover .sidebar-text,
+    .admin-sidebar.collapsed:hover .sidebar-logo {
+        display: inline-block;
+    }
+}
+
+.admin-header {
+    height: var(--admin-header-height);
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.toggle-sidebar-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* فتات الخبز (Breadcrumbs) */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.breadcrumbs a {
+    color: var(--brand-primary);
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
+}
+
+.breadcrumbs a:hover {
+    opacity: 0.8;
+}
+
+.breadcrumbs-separator {
+    color: var(--border-color);
+    font-size: 12px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-toggle-admin {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all var(--transition-speed);
+}
+
+.theme-toggle-admin:hover {
+    background: var(--border-color);
+}
+
+/* ===== 3. Dashboard Content & Cards ===== */
+.admin-content-wrapper {
+    padding: 30px;
+    flex: 1;
+}
+
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-speed);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-primary);
+}
+
+.stat-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon-wrapper img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.stat-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* ===== 4. Tables & Fixed Images ===== */
+.admin-table-container {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px 20px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.admin-table tr:hover {
+    background-color: rgba(26, 115, 232, 0.02);
+}
+
+/* الصور الثابتة في الجداول */
+.table-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+/* ===== 5. Skeleton Loading ===== */
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-light) !important;
+    color: transparent !important;
+    border-color: transparent !important;
+    user-select: none;
+    pointer-events: none;
+}
+
+.skeleton img, .skeleton i, .skeleton .table-img {
+    opacity: 0;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+}
+
+html[data-theme="dark"] .skeleton::after {
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0,
+        rgba(255, 255, 255, 0.05) 20%,
+        rgba(255, 255, 255, 0.1) 60%,
+        rgba(0, 0, 0, 0)
+    );
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+
+/* ===== 6. Responsive Design (الهاتف) ===== */
+@media (max-width: 992px) {
+    .admin-sidebar {
+        transform: translateX(100%); /* الإخفاء الافتراضي للسايدبار في اليمين */
+    }
+    .admin-sidebar.collapsed {
+        transform: translateX(0); /* الإظهار عند تفعيل الكلاس من الزر العائم */
+        width: 260px;
+    }
+    .admin-main {
+        margin-right: 0 !important; /* إلغاء الهامش تماماً ليأخذ المحتوى الشاشة كاملة */
+    }
+    .admin-main.expanded {
+        margin-right: 0 !important;
+    }
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        backdrop-filter: blur(3px);
+    }
+    .sidebar-overlay.show {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .admin-header {
+        padding: 0 15px;
+    }
+}

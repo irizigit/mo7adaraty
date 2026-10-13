@@ -1,0 +1,185 @@
+/* =========================================
+   متغيرات الصور والأيقونات (تسهل التعديل مستقبلاً)
+   ========================================= */
+:root {
+    /* الصور والخلفيات */
+    --bg-page-pattern: url('../../includesimg/student/bg-page-pattern.webp');
+    --bg-profile-header: url('../../includesimg/student/profile-header-bg.webp');
+    --bg-card-pattern: url('../../includesimg/student/card-pattern.webp');
+
+    /* أيقونات SVG / PNG */
+    --icon-archive: url('../../includesimg/student/icon-archive.svg');
+    --icon-lectures: url('../../includesimg/student/icon-lectures.svg');
+    --icon-settings: url('../../includesimg/student/icon-settings.svg');
+    --icon-graduation: url('../../includesimg/student/icon-graduation.svg');
+    --icon-enter: url('../../includesimg/student/icon-enter.svg');
+    --icon-pdf: url('../../includesimg/student/icon-pdf.svg');
+    --icon-gender: url('../../includesimg/student/icon-gender.svg');
+    --icon-check: url('../../includesimg/student/icon-check.svg');
+}
+
+/* =========================================
+   Student Profile & Dashboard Styles
+   ========================================= */
+
+.student-profile-page {
+    background-color: var(--bg-light, #f8f9fa);
+    background-image: var(--bg-page-pattern);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+
+.profile-header {
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.8), rgba(0, 0, 0, 0.5)), 
+                var(--bg-profile-header);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem; 
+    padding: 2rem; 
+    margin-bottom: 2rem; 
+    color: white; 
+    position: relative; 
+    overflow: hidden; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+}
+
+.profile-header::before { content: ''; position: absolute; top: -80px; left: -80px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.1); z-index: 1; }
+.profile-header::after { content: ''; position: absolute; bottom: -100px; right: -100px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); z-index: 1; }
+.profile-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+/* أزرار الترويسة */
+.profile-actions { 
+    position: absolute; 
+    top: 1.5rem; 
+    left: 1.5rem; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 0.5rem; 
+    z-index: 3; 
+}
+
+.profile-actions .action-btn { 
+    background-color: rgba(0, 0, 0, 0.986); 
+    color: rgb(253, 244, 244); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    padding: 0.5rem 1rem; 
+    border-radius: 0.75rem; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 14px; 
+    transition: all 0.3s; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.4rem; 
+    backdrop-filter: blur(10px); 
+}
+
+.profile-actions .action-btn:hover { 
+    background-color: rgb(5, 5, 5); 
+    transform: translateY(-2px); 
+}
+
+.profile-header img { width: 140px; height: 140px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.3); object-fit: cover; margin-bottom: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: all 0.3s; }
+.profile-header h1 { margin: 0 0 0.5rem; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.profile-header p { color: rgba(255,255,255,0.9); font-size: 18px; margin: 0; max-width: 500px; }
+
+/* Re-enrollment Box */
+.reenroll-box { background: white; border-radius: 1rem; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin-bottom: 2rem; border-top: 5px solid var(--primary-color, #4361ee); text-align: center; position: relative; overflow: hidden;}
+.reenroll-box h2 { color: var(--primary-color, #4361ee); font-size: 24px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 0.5rem;}
+.reenroll-box p.intro { color: #6c757d; margin-bottom: 25px; font-size: 16px; }
+.division-badge { display: inline-block; background: #e6f0ff; color: #3a56d4; padding: 10px 20px; border-radius: 0.75rem; font-weight: bold; margin-bottom: 20px; font-size: 16px; display: inline-flex; align-items: center; gap: 0.5rem;}
+.reenroll-form { max-width: 500px; margin: 0 auto; text-align: right; }
+.btn-submit-enroll { width: 100%; background: #28a745; color: white; border: none; padding: 14px; border-radius: 0.5rem; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.btn-submit-enroll:hover { background: #218838; transform: translateY(-2px); }
+
+/* Divisions & Classes */
+.division-group { background-color: #ffffff; border-radius: 1rem; box-shadow: 0 10px 20px rgba(67, 97, 238, 0.08); margin-bottom: 2rem; overflow: hidden; transition: all 0.3s; }
+.division-group:hover { transform: translateY(-3px); }
+.division-header { background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; padding: 1.5rem; position: relative; }
+.division-header h2 { margin: 0; font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+
+.offerings-grid { padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+.class-card { border: 1px solid #e9ecef; border-radius: 1rem; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: all 0.3s; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+
+.class-card:hover { box-shadow: 0 15px 25px rgba(67, 97, 238, 0.1); transform: translateY(-5px); border-color: #dbeafe; }
+.class-card-header { padding: 1.5rem; border-bottom: 1px solid #e9ecef; background: linear-gradient(to right, #f8fafc, #ffffff); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; position: relative; z-index: 2; }
+.class-info h4 { margin: 0; font-size: 20px; color: #4361ee; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; } 
+.btn-enter { padding: 0.5rem 1rem; background-color: #4361ee; color: white !important; border-radius: 0.75rem; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.3s; white-space: nowrap; display: flex; align-items: center; gap: 0.4rem; position: relative; z-index: 2; }
+.btn-enter:hover { background-color: #3a56d4; transform: translateY(-2px); }
+
+.class-card-body { 
+    padding: 1.5rem; 
+    flex-grow: 1; 
+    position: relative; 
+    z-index: 2; 
+    overflow: hidden; 
+}
+
+/* العلامة المائية للبطاقات */
+.class-card-body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-card-pattern);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    opacity: 0.1; 
+    pointer-events: none; 
+    z-index: -1; 
+}
+
+.subjects-list { list-style: none; padding: 0; margin: 0; }
+.subjects-list li { padding: 1rem; font-size: 16px; border-bottom: 1px dashed #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+.subjects-list li:last-child { border-bottom: none; }
+.subjects-list .subject-name { font-weight: 600; color: #334155; display: flex; align-items: center; gap: 0.4rem; } 
+.subjects-list .professor-name { color: #64748b; font-size: 14px; background-color: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 0.375rem; display: inline-flex; align-items: center; gap: 0.3rem;}
+.no-data { text-align: center; padding: 3rem; background-color: #ffffff; border-radius: 1rem; color: #64748b; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-size: 18px; border: 2px dashed #cbd5e1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; } 
+.section-title { font-size: 28px; font-weight: 700; color: #4361ee; margin-bottom: 1.5rem; text-align: center; position: relative; display: flex; align-items: center; justify-content: center; gap: 0.5rem; } 
+.section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(to right, #4361ee, #4cc9f0); border-radius: 2px; }
+
+/* =========================================
+   نظام الأيقونات 
+   ========================================= */
+.svg-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* ربط كل كلاس بالمتغير الخاص به */
+.icon-archive   { background-image: var(--icon-archive); }
+.icon-lectures  { background-image: var(--icon-lectures); }
+.icon-settings  { background-image: var(--icon-settings); }
+.icon-enter     { background-image: var(--icon-enter); }
+.icon-pdf       { background-image: var(--icon-pdf); }
+.icon-check     { background-image: var(--icon-check); }
+
+/* أيقونات تحتاج حجماً أكبر بقليل */
+.icon-graduation { 
+    background-image: var(--icon-graduation); 
+    width: 50px; 
+    height: 50px; 
+}
+.icon-gender { 
+    background-image: var(--icon-gender); 
+    width: 50px; 
+    height: 50px; /* تم التصحيح هنا: من 50x إلى 50px */
+}
+
+@media (max-width: 768px) {
+  .profile-actions { position: static; justify-content: center; margin-bottom: 1.5rem; flex-direction: column; width: 100%; align-items: stretch;}
+  .profile-actions .action-btn { width: 100%; justify-content: center; }
+  .profile-content { flex-direction: column; }
+}

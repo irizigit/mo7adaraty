@@ -1,0 +1,219 @@
+/* =========================================
+   Legal Pages Styles (Privacy & Terms)
+   ========================================= */
+
+.legal-page-wrapper {
+    background-color: var(--bg-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 1. Hero Section */
+.legal-hero {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-hover));
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.legal-wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.legal-wave-fill {
+    fill: var(--bg-color);
+    transition: fill var(--transition-normal);
+}
+
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* 2. Cards */
+.legal-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.legal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--brand-primary);
+}
+
+.legal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--brand-primary), var(--brand-hover));
+}
+
+/* 3. Typography & Elements */
+.legal-title {
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.legal-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-hover));
+    border-radius: 2px;
+}
+
+.legal-text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+.legal-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+    margin-bottom: 20px;
+    transition: all var(--transition-fast);
+}
+
+.legal-card:hover .legal-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 4. Lists & Highlights */
+.legal-list {
+    list-style: none;
+    padding: 0;
+}
+
+.legal-list li {
+    position: relative;
+    padding-right: 25px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.legal-list li::before {
+    content: '\f054';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    color: var(--brand-primary);
+    font-size: 13px;
+}
+
+.legal-highlight {
+    background-color: var(--brand-light);
+    border-right: 4px solid var(--brand-primary);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    margin: 20px 0;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.legal-link {
+    color: var(--brand-primary);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.legal-link:hover {
+    text-decoration: underline;
+}
+
+/* 5. Stats & Tables */
+.legal-stat-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.legal-stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-primary);
+}
+
+.legal-stat-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    margin-bottom: 10px;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.legal-table th, .legal-table td {
+    padding: 15px 20px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.legal-table th {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-hover));
+    color: white;
+    font-weight: bold;
+}
+
+.legal-table tr:last-child td {
+    border-bottom: none;
+}
+
+.legal-table tr:hover td {
+    background-color: var(--bg-light);
+}

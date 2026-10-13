@@ -1,0 +1,505 @@
+/* =========================================
+   1. CSS Variables (Theming Engine)
+   ========================================= */
+:root {
+    /* ألوان الوضع الفاتح (الافتراضية) */
+    --bg-color: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-surface: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #5f6368;
+    --border-color: #e5e7eb;
+    
+    /* ألوان العلامة التجارية (Brand) */
+    --brand-primary: #1a73e8;
+    --brand-hover: #0056b3;
+    --brand-light: #e7f1ff;
+    
+    /* ألوان النظام (System) */
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #6c757d;
+    
+    /* قياسات عامة (Dimensions) */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-pill: 50px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --font-family: 'SF Soltan', sans-serif;
+}
+
+
+html[dir="ltr"], html[lang="fr"] {
+    --font-family: 'EtherealGlamour', sans-serif;
+}
+
+/* 1. استدعاء وتعريف الخطوط كل واحد في مربع مستقل */
+/* خط العربية */
+@font-face {
+    font-family: 'SF Soltan';
+    src: url('../font/sf-soltan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* خط الفرنسية */
+@font-face {
+    font-family: 'EtherealGlamour';
+    src: url('../font/EtherealGlamour.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* ألوان الوضع المظلم (Dark Mode) */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --bg-light: #1e1e1e;
+    --bg-surface: #242424;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #333333;
+    
+    --brand-primary: #4facfe;
+    --brand-hover: #00f2fe;
+    --brand-light: rgba(79, 172, 254, 0.15);
+    
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   2. Base Reset (تصفير التنسيقات)
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* 1. تعريف الخط وجلبه من المسار */
+/* 1. استدعاء وتعريف الخط */
+ 
+/* 2. تطبيق الخط على العناصر المطلوبة */
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    direction: rtl;
+    line-height: 1.6;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* مهم جداً لجعل الفوتر في أسفل الشاشة دائماً */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   3. Header Styles (BEM Methodology)
+   ========================================= */
+.header {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+/* =========================================
+   تعديلات حاوية الهيدر والقائمة (للتجاوب المرن المطاطي)
+   ========================================= */
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px clamp(10px, 2vw, 20px); /* هوامش مرنة للأطراف */
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 10px; /* ضمان عدم تداخل اللوجو مع القائمة */
+}
+
+.header__nav {
+    flex-grow: 1; /* يجعل القائمة تأخذ كل المساحة المتبقية بمرونة */
+    margin: 0 clamp(5px, 1vw, 20px);
+    display: flex;
+    justify-content: center;
+}
+
+.nav__list {
+    display: flex;
+    flex-wrap: nowrap; /* إجبار العناصر على البقاء في سطر واحد */
+    justify-content: center;
+    align-items: center;
+    gap: clamp(2px, 0.6vw, 10px); /* مسافة مرنة بين العناصر تصغر مع الشاشة */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column; /* الأيقونة فوق النص */
+    align-items: center;
+    justify-content: center;
+    padding: clamp(4px, 0.5vw, 8px) clamp(4px, 0.5vw, 10px); /* حشوة (Padding) مرنة */
+    color: var(--text-secondary);
+    font-weight: 600;
+    /* السر هنا: الخط يبدأ من 9px في الشاشات الأصغر، ويكبر بمرونة حتى 15px */
+    font-size: clamp(9px, 0.9vw, 15px); 
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    gap: 4px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap; /* يمنع النص من التكسر العشوائي */
+}
+
+.nav__link:hover {
+    background-color: var(--brand-light);
+    color: var(--brand-primary);
+}
+
+/* الأيقونات المطاطية */
+.nav__icon-img {
+    width: clamp(40px, 2vw, 40px); /* تم التكبير هنا */
+    height: auto;
+    object-fit: contain;
+}
+
+.nav__text {
+    white-space: nowrap;
+}
+
+.nav__link--btn {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+}
+
+.nav__badge {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    background-color: var(--danger-color);
+    color: white;
+    border-radius: var(--radius-pill);
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid var(--bg-surface);
+    line-height: 1;
+}
+
+.nav__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.nav__item--dropdown:hover .nav__dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.nav__dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-fast);
+}
+
+.nav__dropdown-item:hover {
+    background-color: var(--bg-light);
+    color: var(--brand-primary);
+}
+
+.nav__dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.nav__dropdown-time {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.nav__dropdown-menu--notifications {
+    min-width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-light);
+    color: var(--brand-primary);
+}
+
+.header__menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 5px;
+}
+
+.header__menu-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* =========================================
+   4. Header Responsive (الموبايل)
+   ========================================= */
+@media (max-width: 992px) {
+    .header__menu-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header__nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-surface);
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border-color);
+        padding: 15px;
+        z-index: 999;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    .header__nav.is-active {
+        display: block;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav__item {
+        width: 100%;
+        display: block;
+    }
+
+    .nav__link {
+        width: 100%;
+        flex-direction: row; /* جعل الأيقونة بجانب النص للمظهر العمودي الأنيق */
+        justify-content: flex-start;
+        padding: 12px 15px;
+        font-size: 15px;
+        gap: 15px;
+    }
+
+    .nav__icon-img {
+        width: 32px; /* تم التكبير هنا لشاشات الموبايل */
+        height: 32px;
+    }
+
+    .nav__link--btn {
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color);
+    }
+
+    .nav__dropdown-menu {
+        position: static;
+        transform: none !important;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        box-shadow: none;
+        border: none;
+        background-color: var(--bg-light);
+        margin-top: 5px;
+        padding-right: 15px;
+    }
+
+    .nav__item--dropdown:hover .nav__dropdown-menu {
+        display: block;
+    }
+
+    .nav__dropdown-item {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* =========================================
+   5. Footer Styles (BEM Methodology)
+   ========================================= */
+.footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    padding: 60px 0 0 0;
+    margin-top: auto; /* يجبر الفوتر على البقاء في الأسفل بفضل display: flex في الـ body */
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.footer__brand {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--brand-primary);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.footer__title {
+    color: var(--text-primary);
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--brand-primary);
+    border-radius: 2px;
+}
+
+.footer__text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer__link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: inline-block;
+    font-size: 15px;
+}
+
+.footer__link:hover {
+    color: var(--brand-primary);
+    transform: translateX(-8px); /* يتحرك لليسار قليلاً في اللغة العربية */
+}
+
+.footer__social-list {
+    display: flex;
+    gap: 12px;
+}
+
+.footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: var(--bg-light);
+    color: var(--text-secondary);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border-color);
+}
+
+.footer__social-link:hover {
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    border-color: var(--brand-primary);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.footer__bottom {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.footer__bottom strong {
+    color: var(--brand-primary);
+    font-weight: 700;
+    letter-spacing: 1px;
+}

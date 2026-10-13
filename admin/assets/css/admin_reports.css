@@ -1,0 +1,146 @@
+/* admin/assets/css/admin_reports.css */
+.reports-container {
+    padding: 20px;
+}
+
+.page-title {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.no-data-alert {
+    background-color: #fdfaf0;
+    border-left: 4px solid #f1c40f;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    border-radius: 4px;
+}
+
+[dir="rtl"] .no-data-alert {
+    border-left: none;
+    border-right: 4px solid #f1c40f;
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.report-card {
+    background: #fff;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(231, 76, 60, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.report-header {
+    background-color: #fff3cd;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffeeba;
+    color: #856404;
+}
+
+.reporter-name {
+    font-size: 1.05rem;
+}
+
+.report-date {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.report-body {
+    padding: 20px;
+}
+
+.reported-content-info {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.content-title {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+.content-status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.bg-success { background-color: #27ae60; }
+.bg-warning { background-color: #f39c12; }
+
+.report-reason-box {
+    background-color: #fdf2f2;
+    padding: 15px;
+    border-left: 4px solid #e74c3c;
+    border-radius: 4px;
+    color: #c0392b;
+}
+
+[dir="rtl"] .report-reason-box {
+    border-left: none;
+    border-right: 4px solid #e74c3c;
+}
+
+.report-reason-box p {
+    margin: 10px 0 0 0;
+    line-height: 1.5;
+}
+
+.report-actions {
+    display: flex;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    gap: 15px;
+}
+
+.action-form {
+    flex: 1;
+    margin: 0;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-dismiss {
+    background-color: #95a5a6;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
